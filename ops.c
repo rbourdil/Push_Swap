@@ -28,28 +28,22 @@ static int	pop(t_stack *stack)
 	return (ret);
 }
 
-static void	push(t_stack *stack, int n)
+void	push(t_stack *a, t_stack *b)
 {
+	int	n;
 	int	tmp;
 	int	i;
 
+	n = pop(b);
 	i = 0;
-	while (i < stack->size)
+	while (i < a->size)
 	{
-		tmp = stack->list[i];
-		stack->list[i++] = n;
+		tmp = a->list[i];
+		a->list[i++] = n;
 		n = tmp;
 	}
-	stack->list[i] = n;
-	stack->size++;
-}
-
-void	pop_and_push(t_stack *a, t_stack *b)
-{
-	int	n;
-
-	n = pop(b);
-	push(a, n);
+	a->list[i] = n;
+	a->size++;
 }
 
 void	rotate(t_stack *stack)
@@ -81,4 +75,13 @@ void	rev_rotate(t_stack *stack)
 		stack->list[i++] = tmp1;
 		tmp1 = tmp2;
 	}
+}
+
+void	swap(t_stack *stack)
+{
+	int	tmp;
+
+	tmp = stack->list[0];
+	stack->list[0] = stack->list[1];
+	stack->list[1] = tmp;
 }

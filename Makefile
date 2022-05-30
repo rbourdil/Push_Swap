@@ -1,6 +1,6 @@
 NAME = push_swap
 
-OBJS = main.o ops.o dist.o exe_ops.o others.o exe_moves.o init.o
+OBJS = main.o ops.o dist.o exe_ops.o others.o exe_moves.o init.o minsort.o
 
 HEAD = push_swap.h
 

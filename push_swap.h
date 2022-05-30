@@ -29,6 +29,7 @@
 # define RRB 0x20
 # define PA 0x80
 # define PB 0x100
+# define SA 0x200
 
 typedef struct s_stack {
 	int	*list;
@@ -43,15 +44,17 @@ typedef struct s_moves {
 
 void	init_stacks(t_stack *a, t_stack *b, int argc, char*argv[]);
 
-void	pop_and_push(t_stack *a, t_stack *b);
+void	push(t_stack *a, t_stack *b);
 void	rotate(t_stack *stack);
 void	rev_rotate(t_stack *stack);
+void	swap(t_stack *stack);
 
 void	exe_ops(t_stack *a, t_stack *b, int op);
 
 int		find_max(t_stack *stack);
 void	min_dist(int dista, int distb, t_moves *moves);
 int		insert_dist(t_stack *stack, int n);
+void	find_least_moves(t_stack *a, t_stack *b, t_moves *moves);
 
 void	exec_moves(t_stack *a, t_stack *b, t_moves *moves);
 void	transfer_b_to_a(t_stack *a, t_stack *b);
@@ -59,5 +62,7 @@ void	transfer_b_to_a(t_stack *a, t_stack *b);
 int		max(int a, int b);
 int		min(int a, int b);
 int		ft_abs(int n);
+
+void	minsort(t_stack *a, t_stack *b);
 
 #endif

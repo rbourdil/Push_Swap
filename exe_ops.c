@@ -30,6 +30,8 @@ static void	print_ops(int op)
 		write(STDOUT_FILENO, "pa\n", 3);
 	else if ((op & PB) != 0)
 		write(STDOUT_FILENO, "pb\n", 3);
+	else if ((op & SA) != 0)
+		write((STDOUT_FILENO), "sa\n", 3);
 }
 
 void	exe_ops(t_stack *a, t_stack *b, int op)
@@ -53,8 +55,10 @@ void	exe_ops(t_stack *a, t_stack *b, int op)
 	else if ((op & RRB) != 0)
 		rev_rotate(b);
 	else if ((op & PA) != 0)
-		pop_and_push(a, b);
+		push(a, b);
 	else if ((op & PB) != 0)
-		pop_and_push(b, a);
+		push(b, a);
+	else if ((op & SA) != 0)
+		swap(a);
 	print_ops(op);
 }

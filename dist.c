@@ -78,3 +78,31 @@ void	min_dist(int dista, int distb, t_moves *moves)
 			moves->mode = RRR | RRA;
 	}
 }
+
+void	find_least_moves(t_stack *a, t_stack *b, t_moves *moves)
+{
+	int	i;
+	int	dista;
+	int	distb;
+
+	moves->total = a->size + b->size;
+	i = 0;
+	while (i < a->size)
+	{
+		dista = i;
+		if (i > a->size / 2)
+			dista = i - a->size;
+		distb = insert_dist(b, a->list[i]);
+		if (dista < 0 && distb > 0 && ft_abs(dista) <= ft_abs(distb))
+			distb -= b->size;
+		else if (dista < 0 && distb > 0)
+			dista += a->size;
+		else if (dista > 0 && distb < 0 && ft_abs(dista) <= ft_abs(distb))
+			distb += b->size;
+		else if (dista > 0 && distb < 0)
+			dista -= a->size;
+		min_dist(dista, distb, moves);
+		i++;
+	}
+}
+
