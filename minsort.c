@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minsort.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rbourdil <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/30 14:05:26 by rbourdil          #+#    #+#             */
+/*   Updated: 2022/05/30 15:54:42 by rbourdil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	find_min(t_stack *stack)
@@ -44,26 +56,14 @@ static void	push_min(t_stack *a, t_stack *b, int size_left)
 	}
 }
 
-static int	sorted(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->size - 1)
-	{
-		if (stack->list[i] > stack->list[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 void	minsort(t_stack *a, t_stack *b)
 {
 	push_min(a, b, 3);
 	while (!sorted(a))
 	{
-		if (a->list[0] < a->list[1])
+		if (a->size < 3)
+			exe_ops(a, b, SA);
+		else if (a->list[0] < a->list[1])
 			exe_ops(a, b, RRA);
 		else if (a->list[0] > a->list[1] && a->list[0] < a->list[2])
 			exe_ops(a, b, SA);

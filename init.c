@@ -6,7 +6,7 @@
 /*   By: rbourdil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:10:59 by rbourdil          #+#    #+#             */
-/*   Updated: 2022/05/27 17:18:01 by rbourdil         ###   ########.fr       */
+/*   Updated: 2022/05/30 16:00:49 by rbourdil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	not_int(char *nb)
 		nb++;
 	if (*nb == '+' || *nb == '-')
 		nb++;
+	if (!ft_isdigit(*nb))
+		return (1);
 	while (ft_isdigit(*nb))
 		nb++;
 	if (*nb != '\0')

@@ -6,7 +6,7 @@
 /*   By: rbourdil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:43:58 by rbourdil          #+#    #+#             */
-/*   Updated: 2022/05/27 17:44:25 by rbourdil         ###   ########.fr       */
+/*   Updated: 2022/05/30 14:05:18 by rbourdil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,3 @@ void	find_least_moves(t_stack *a, t_stack *b, t_moves *moves)
 		i++;
 	}
 }
-

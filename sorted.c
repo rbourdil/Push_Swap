@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbourdil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 17:22:49 by rbourdil          #+#    #+#             */
-/*   Updated: 2022/05/30 16:05:36 by rbourdil         ###   ########.fr       */
+/*   Created: 2022/05/30 15:52:54 by rbourdil          #+#    #+#             */
+/*   Updated: 2022/05/30 15:53:59 by rbourdil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	sorted(t_stack *stack)
 {
-	t_stack	a;
-	t_stack	b;
-	t_moves	moves;
+	int	i;
 
-	init_stacks(&a, &b, argc, argv);
-	if (argc == 1 || sorted(&a))
+	i = 0;
+	while (i < stack->size - 1)
 	{
-		free(a.list);
-		free(b.list);
-		return (0);
+		if (stack->list[i] > stack->list[i + 1])
+			return (0);
+		i++;
 	}
-	if (argc <= 6)
-	{
-		minsort(&a, &b);
-		return (0);
-	}
-	while (a.size > 0)
-	{
-		find_least_moves(&a, &b, &moves);
-		exec_moves(&a, &b, &moves);
-	}
-	transfer_b_to_a(&a, &b);
-	free(a.list);
-	free(b.list);
-	return (0);
+	return (1);
 }

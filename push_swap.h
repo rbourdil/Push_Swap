@@ -6,14 +6,13 @@
 /*   By: rbourdil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:23:18 by rbourdil          #+#    #+#             */
-/*   Updated: 2022/05/27 17:42:22 by rbourdil         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:54:20 by rbourdil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
@@ -42,7 +41,7 @@ typedef struct s_moves {
 	int	mode;
 }	t_moves;
 
-void	init_stacks(t_stack *a, t_stack *b, int argc, char*argv[]);
+void	init_stacks(t_stack *a, t_stack *b, int argc, char *argv[]);
 
 void	push(t_stack *a, t_stack *b);
 void	rotate(t_stack *stack);
@@ -64,5 +63,7 @@ int		min(int a, int b);
 int		ft_abs(int n);
 
 void	minsort(t_stack *a, t_stack *b);
+
+int		sorted(t_stack *stack);
 
 #endif
