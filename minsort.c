@@ -72,4 +72,6 @@ void	minsort(t_stack *a, t_stack *b)
 	}
 	while (b->size > 0)
 		exe_ops(a, b, PA);
+	free(a->list);
+	free(b->list);
 }
